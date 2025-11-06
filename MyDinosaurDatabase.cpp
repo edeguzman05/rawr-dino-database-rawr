@@ -80,7 +80,7 @@ namespace CPSC131::Databases::Dinosaurs
 		> callback
 	)
 	{
-		this->traversePreOrder(callback);
+		tree_.traversePreOrder(callback);
 	}
 	
 	/**
@@ -94,7 +94,7 @@ namespace CPSC131::Databases::Dinosaurs
 		> callback
 	) const
 	{
-		this->traverseInOrder(callback);
+		tree_.traverseInOrder(callback);
 	}
 	
 	/**
@@ -108,7 +108,7 @@ namespace CPSC131::Databases::Dinosaurs
 		> callback
 	)
 	{
-		this->traverseInOrder(callback);
+		tree_.traverseInOrder(callback);
 	}
 	
 	/**
@@ -122,7 +122,7 @@ namespace CPSC131::Databases::Dinosaurs
 		> callback
 	)
 	{
-		this->traversePostOrder(callback);
+		tree_.traversePostOrder(callback);
 	}
 	
 	/**
