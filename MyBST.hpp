@@ -1051,9 +1051,8 @@ namespace CPSC131::BST
 	{
 		if (root_ == nullptr) {
 			return true;
-		} else {
-		return false;
 		}
+		return false;
 	}
 	
 	/**
@@ -1076,7 +1075,33 @@ namespace CPSC131::BST
 	template <class T>
 	std::shared_ptr<class MyBST<T>::Node> MyBST<T>::getDeepestLeaf()
 	{
-		return nullptr;
+		std::queue<std::shared_ptr<class MyBST<T>::Node>> diglett;
+		diglett.push(root_);
+		std::shared_ptr<class MyBST<T>::Node> deepest = nullptr;
+		
+		if (root_ == nullptr) {
+			return nullptr;
+		} else if (isExternal(root_)) {
+			return root_;
+		} else {
+			while (!diglett.empty()) {
+				auto dugtrio = diglett.front();
+				diglett.pop();
+				
+				if (dugtrio->getLeftChild() != nullptr) {
+					diglett.push(dugtrio->getLeftChild());
+				}
+				
+				if (dugtrio->getRightChild() != nullptr) {
+					diglett.push(dugtrio->getRightChild());
+				}
+				
+				if(isExternal(dugtrio)) {
+					deepest = dugtrio;
+					}
+				}
+			}
+		return deepest;
 	}
 	
 	/**
